@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
 {
-    private Rigidbody bulletRigidbody;
+    private Rigidbody bulletRigidbody;    
 
     void Awake()
     {
@@ -20,6 +20,13 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        // add momentum to the object we hit
+        Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
+        if(otherRigidbody != null)
+        {
+            otherRigidbody.AddForce(transform.forward * 5f, ForceMode.Impulse);
+        }
+            Destroy(gameObject);
+
     }
 }
