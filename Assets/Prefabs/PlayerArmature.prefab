@@ -341,7 +341,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4416926081852918481}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2e8bbe127b28e4cc8bd31d4aa6ab730c, type: 3}
+  m_Avatar: {fileID: 9000000, guid: b34687738298946aa8af25a0a3a85665, type: 3}
   m_Controller: {fileID: 9100000, guid: e67acb8d11e63420fa379121342ce783, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -724,6 +724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiConv.com__Milady@Walking
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2e8bbe127b28e4cc8bd31d4aa6ab730c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6329415303657288749, guid: 2e8bbe127b28e4cc8bd31d4aa6ab730c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -808,9 +813,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b34687738298946aa8af25a0a3a85665,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: b34687738298946aa8af25a0a3a85665, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b34687738298946aa8af25a0a3a85665, type: 3}
 --- !u!4 &2039430006832994507 stripped
 Transform:
