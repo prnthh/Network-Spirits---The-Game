@@ -7,11 +7,10 @@ public class Bootstrap : MonoBehaviour
     public static AdsInitializer adsInitializer { get; private set; }
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-
         if (Instance == null)
         {
             Instance = this;
+                    DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -21,7 +20,7 @@ public class Bootstrap : MonoBehaviour
 
     void Start()
     {
-        // create an instance and add to current gameObject
+        // create an instance and add to root of scene
         adsInitializer = gameObject.AddComponent<AdsInitializer>();
     }
 }
