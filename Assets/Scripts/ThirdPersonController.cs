@@ -56,6 +56,7 @@ namespace StarterAssets
 
         [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
         public float GroundedRadius = 0.28f;
+        public bool Climbing = false;
 
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
@@ -193,6 +194,19 @@ namespace StarterAssets
             }
         }
 
+        public void TriggerClimb(Collider hit)
+        {
+            if(hit.gameObject.name == "PlayerArmature" || hit.gameObject.name == "Player")
+                return;
+
+            if (_hasAnimator && !Grounded)
+            {
+                            Debug.Log(hit.gameObject.name + " hit the trigger");
+                Climbing = true;
+                _animator.SetBool("ClimbPossible", true);
+            }
+        }
+
         private void CameraRotation()
         {
             // if there is an input and camera position is not fixed
@@ -216,6 +230,12 @@ namespace StarterAssets
 
         private void Move()
         {
+
+            if (Climbing)
+            {
+                // If climbing, restrict movement
+                return;
+            }
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = !_input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -285,6 +305,21 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
+            if (Climbing)
+            {
+                // If climbing, only allow upward jump and reset climbing
+                if (_input.jump)
+                {
+                    Climbing = false;
+                    _animator.SetBool("ClimbPossible", false);
+                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -3f * Gravity);
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDJump, true);
+                    }
+                }
+                return;
+            }
             if (Grounded)
             {
                 // reset the fall timeout timer
