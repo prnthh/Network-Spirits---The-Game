@@ -77,6 +77,12 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Tooltip("Left hand of the player")]
+        public GameObject LeftHandTarget;
+
+        [Tooltip("Right hand of the player")]
+        public GameObject RightHandTarget;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -194,16 +200,18 @@ namespace StarterAssets
             }
         }
 
-        public void TriggerClimb(Collider hit)
+        public void TriggerClimb(Collision collision, bool rightHand)
         {
-            if(hit.gameObject.name == "PlayerArmature" || hit.gameObject.name == "Player")
-                return;
-
             if (_hasAnimator && !Grounded)
             {
-                            Debug.Log(hit.gameObject.name + " hit the trigger");
+                            // Debug.Log(hit.gameObject.name + " hit the trigger");
                 Climbing = true;
                 _animator.SetBool("ClimbPossible", true);
+
+                if(rightHand)
+                RightHandTarget.transform.position = collision.contacts[0].point;
+                else
+                LeftHandTarget.transform.position = collision.contacts[0].point;
             }
         }
 

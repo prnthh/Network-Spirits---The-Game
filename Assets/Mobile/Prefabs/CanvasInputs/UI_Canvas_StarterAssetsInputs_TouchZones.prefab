@@ -31,6 +31,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1845145781368689681}
   - {fileID: 8361770633040054537}
@@ -181,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -40
+      value: 178.8328
       objectReference: {fileID: 0}
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
@@ -226,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 109.4164
       objectReference: {fileID: 0}
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
@@ -476,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -40
+      value: 177.7
       objectReference: {fileID: 0}
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
@@ -521,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 109.15
       objectReference: {fileID: 0}
     - target: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
@@ -545,13 +546,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4767772227563435448, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767772227563435448, guid: c82978c3789dad44da354dc354c782b2,
+        type: 3}
+      propertyPath: clampToMagnitude
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767772227563435448, guid: c82978c3789dad44da354dc354c782b2,
+        type: 3}
       propertyPath: invertYOutputValue
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4767772227563435448, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
       propertyPath: magnitudeMultiplier
-      value: 60
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4767772227563435448, guid: c82978c3789dad44da354dc354c782b2,
         type: 3}
@@ -576,12 +587,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c82978c3789dad44da354dc354c782b2, type: 3}
+--- !u!224 &593346031771045318 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4767772227758557155, guid: c82978c3789dad44da354dc354c782b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5337181753265900069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8361770633040054537 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4475312012745311020, guid: c82978c3789dad44da354dc354c782b2,
     type: 3}
   m_PrefabInstance: {fileID: 5337181753265900069}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8361770633040054538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4475312012745311023, guid: c82978c3789dad44da354dc354c782b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5337181753265900069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &595175000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8361770633040054538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7813fcfdf5c4557b5981e662af9a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containerRect: {fileID: 8361770633040054537}
+  handleRect: {fileID: 593346031771045318}
+  clampToMagnitude: 0
+  magnitudeMultiplier: 0.1
+  invertXOutputValue: 0
+  invertYOutputValue: 1
+  touchZoneOutputEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2854614339647494548}
+        m_TargetAssemblyTypeName: StarterAssets.UICanvasControllerInput, Assembly-CSharp
+        m_MethodName: VirtualLookInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &6213831090048510771
 PrefabInstance:
   m_ObjectHideFlags: 0

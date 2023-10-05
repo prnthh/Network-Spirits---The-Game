@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     void Awake()
     {
-
+        gameObject.SetActive(true);
     }
 
     void Start()
