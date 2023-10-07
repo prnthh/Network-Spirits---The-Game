@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Animations.Rigging;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -82,6 +83,9 @@ namespace StarterAssets
 
         [Tooltip("Right hand of the player")]
         public GameObject RightHandTarget;
+
+        public TwoBoneIKConstraint LeftHandIK;
+        public TwoBoneIKConstraint RightHandIK;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -209,9 +213,15 @@ namespace StarterAssets
                 _animator.SetBool("ClimbPossible", true);
 
                 if(rightHand)
-                RightHandTarget.transform.position = collision.contacts[0].point;
+                {
+                RightHandTarget.transform.position = collision.contacts[0].point + new Vector3(-0.05f, -0.05f, 0);
+                RightHandIK.weight = 1;
+                }
                 else
-                LeftHandTarget.transform.position = collision.contacts[0].point;
+                {
+                LeftHandTarget.transform.position = collision.contacts[0].point + new Vector3(-0.05f, -0.05f, 0);
+                LeftHandIK.weight = 1;
+                }
             }
         }
 
@@ -325,6 +335,10 @@ namespace StarterAssets
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
+
+                LeftHandIK.weight = 0;
+                RightHandIK.weight = 0;
+
                 }
                 return;
             }
